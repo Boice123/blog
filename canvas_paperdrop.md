@@ -20,8 +20,13 @@
 2.根据设定的要绘画的矩形数量，遍历创建对应的小canvas（决定了矩形的宽高、大小、颜色、初始位置），放置到新创建的矩形canvas数组sprites。
 3.定义一个周期函数,设定一个动画从开始到结束的持续时间duration，得出动画进行到的周期比例：progress = （动画此时时间戳-动画开始时间戳）- duration。progress必定是在0到1之间的。这个参数跟绘画矩形的翻转效果有决定性效果。
 
-翻转之前(https://github.com/Boice123/blog/blob/master/static/img/canvas/%E7%BF%BB%E8%BD%AC%E5%89%8D.png)
-翻转之后(https://github.com/Boice123/blog/blob/master/static/img/canvas/%E7%BF%BB%E8%BD%AC%E5%90%8E.png)
+翻转之前
+![avatar](https://github.com/Boice123/blog/blob/master/static/img/canvas/%E7%BF%BB%E8%BD%AC%E5%89%8D.png)
+翻转之后
+![avatar](https://github.com/Boice123/blog/blob/master/static/img/canvas/%20%E5%88%86%E6%9E%90.png)
 
 翻转，不仅矩形的宽度有变化，就连绘画点的位移也变了。如图，黑色框住的区域，就是矩形canvas的范围。首先，画笔需要先移动到下一帧矩形canvas的中心y轴位置。然后调用*drawImage(canvas,x,y,width,height)* API在大画布上绘制这个小矩形。参数canvas就是这个矩形canvas本身，y就是0,height就是矩形canvas的高，至于x和width参数就复杂点了。
+
 宽度从最大值到最小值，再到最大值的变化，让我想起之前学过的cos函数，根据x值的变化，y值会不断的在极小值和极大值之间变化，所以可以用到这个知识点。因此，所以矩形的宽度为**矩形本来宽度 * Math.abs(Math.cos(Math.PI * 2 * progress))**。至于x参数，就为**-矩形本来宽度 * Math.abs(Math.cos(Math.PI * 2 * progress)) / 2**
+
+以上就是我canvas制作矩形沿中心y轴翻转动画的见解，[详细的代码点这里](https://github.com/Boice123/canvas_demo/tree/master/canvas-paperdrop-demo)
