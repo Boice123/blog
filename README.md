@@ -10,3 +10,6 @@
 以下是我对canvas的理解和demo：
 > * [canvas实现气泡碰撞边缘反弹动画](https://github.com/Boice123/canvas_demo/tree/master/canvas-ball_boundary)
 > * [canvas制作矩形沿中心y轴翻转动画-blog](https://github.com/Boice123/blog/blob/master/canvas_paperdrop.md)
+
+### 平时制作的组件
+> * [移动端省市区选择组件](https://github.com/Boice123/components/tree/master/rollSelect)
